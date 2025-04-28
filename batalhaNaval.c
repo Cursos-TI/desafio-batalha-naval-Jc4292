@@ -5,17 +5,31 @@
 // Siga os comentários para implementar cada parte do desafio.
 
 int main() {
-    // Nível Novato - Posicionamento dos Navios
-    // Sugestão: Declare uma matriz bidimensional para representar o tabuleiro (Ex: int tabuleiro[5][5];).
-    // Sugestão: Posicione dois navios no tabuleiro, um verticalmente e outro horizontalmente.
-    // Sugestão: Utilize `printf` para exibir as coordenadas de cada parte dos navios.
+    
+
+    // constante que indica o tamanho da grid
     const int HEIGHT=5, WIDTH=5;
     int matriz_2d[WIDTH][HEIGHT];
     char linha[10] = {'A', 'B', 'C', 'D', 'F', 'G', 'H', 'I', 'J', 'K'};
 
+
+    // PROBLEMAS: o posicionamento dos navios são hardcoded, ou seja, o navio 1 é sempre horizontal, e o
+    // navio 2 é sempre verical
+
+    /* navio horizontal - index 0: sua posição vertical,
+                        - index 1: posição incial (tamanho),
+                        - index 2: posição final (tamanho),
+    */
     int navio_1[3] = {4, 1, 3};
-    int navio_2[3] = {0, 0, 2};
-    
+
+    /* navio vertical   - index 0: sua posição horizontal,
+                        - index 1: posição incial (tamanho),
+                        - index 2: posição final (tamanho),
+    */
+    int navio_2[3] = {2, 0, 2};
+
+
+    // bloco de código que exibe e inicializa todos os valores da grid,
     printf("  ");
     for(int x = 0; x<WIDTH; x++){
         printf("%c", linha[x]);
@@ -24,6 +38,9 @@ int main() {
     for(int y = 0; y<HEIGHT; y++){
         printf("%d ", y+1);
         for(int x = 0; x<WIDTH; x++){
+
+            // hardcode de posicionamento dos navios
+            
             if(y==navio_1[0]&&x>=navio_1[1]&&x<=navio_1[2])
                 matriz_2d[x][y] = 3;
             else if(x==navio_2[0]&&y>=navio_2[1]&&y<=navio_2[2])
